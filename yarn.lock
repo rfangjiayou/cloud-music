@@ -1210,6 +1210,74 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@better-scroll/core@^2.0.0-beta.10", "@better-scroll/core@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/core/download/@better-scroll/core-2.1.4.tgz#0ba721cb2e6a98b248ed703690e9b877b0a487d1"
+  integrity sha1-C6chyy5qmLJI7XA2kOm4d7Ckh9E=
+  dependencies:
+    "@better-scroll/shared-utils" "^2.1.4"
+
+"@better-scroll/mouse-wheel@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/mouse-wheel/download/@better-scroll/mouse-wheel-2.1.4.tgz#fb31f2ca45bba127a32f217e126489a597a01390"
+  integrity sha1-+zHyykW7oSejLyF+EmSJpZegE5A=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
+"@better-scroll/observe-dom@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/observe-dom/download/@better-scroll/observe-dom-2.1.4.tgz#1c2f7911db47834066c961db1901bf2e2ceab537"
+  integrity sha1-HC95EdtHg0BmyWHbGQG/LizqtTc=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
+"@better-scroll/pull-down@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/pull-down/download/@better-scroll/pull-down-2.1.4.tgz#5d7276a72c2db5ec8e2d6230eb3d8694d1536284"
+  integrity sha1-XXJ2pywtteyOLWIw6z2GlNFTYoQ=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
+"@better-scroll/pull-up@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/pull-up/download/@better-scroll/pull-up-2.1.4.tgz#b80234eaf74d7eb2836bd2e598f6d3109c58fa72"
+  integrity sha1-uAI06vdNfrKDa9LlmPbTEJxY+nI=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
+"@better-scroll/scroll-bar@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/scroll-bar/download/@better-scroll/scroll-bar-2.1.4.tgz#ae3b2933d8cfb00016c4df78de902dd9633ac344"
+  integrity sha1-rjspM9jPsAAWxN943pAt2WM6w0Q=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
+"@better-scroll/shared-utils@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/shared-utils/download/@better-scroll/shared-utils-2.1.4.tgz#2353dab63e433aaf452cb4228d38d76c2174ed06"
+  integrity sha1-I1Patj5DOq9FLLQijTjXbCF07QY=
+
+"@better-scroll/slide@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/slide/download/@better-scroll/slide-2.1.4.tgz#04f606c4c2f95c853b7530214b11f0fc9b93e1e8"
+  integrity sha1-BPYGxML5XIU7dTAhSxHw/JuT4eg=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
+"@better-scroll/wheel@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/wheel/download/@better-scroll/wheel-2.1.4.tgz#2289dc70f271f32878dfd25489383134933b02a6"
+  integrity sha1-IonccPJx8yh439JUiTgxNJM7AqY=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
+"@better-scroll/zoom@^2.0.0-beta.10":
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/zoom/download/@better-scroll/zoom-2.1.4.tgz#313d5739412ffad332c2746184d3da2ba204f3e4"
+  integrity sha1-MT1XOUEv+tMywnRhhNPaK6IE8+Q=
+  dependencies:
+    "@better-scroll/core" "^2.1.4"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -2569,6 +2637,13 @@ axe-core@^4.0.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.1.1.tgz#70a7855888e287f7add66002211a423937063eaf"
   integrity sha512-5Kgy8Cz6LPC9DJcNb3yjAXTu3XihQgEdnIg50c//zOC/MyLP0Clg+Y8Sh9ZjjnvBrDZU4DgXS9C3T9r4/scGZQ==
 
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.npm.taobao.org/axios/download/axios-0.21.1.tgz?cache=0&sync_timestamp=1608609419814&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Faxios%2Fdownload%2Faxios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
+  dependencies:
+    follow-redirects "^1.10.0"
+
 axobject-query@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
@@ -2787,6 +2862,21 @@ bcrypt-pbkdf@^1.0.0:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+better-scroll@^2.0.0-beta.10:
+  version "2.0.0-beta.10"
+  resolved "https://registry.npm.taobao.org/better-scroll/download/better-scroll-2.0.0-beta.10.tgz#4c7b9dbc3e690d98fd4d82a190cb74a65dc5c6df"
+  integrity sha1-THudvD5pDZj9TYKhkMt0pl3Fxt8=
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.10"
+    "@better-scroll/mouse-wheel" "^2.0.0-beta.10"
+    "@better-scroll/observe-dom" "^2.0.0-beta.10"
+    "@better-scroll/pull-down" "^2.0.0-beta.10"
+    "@better-scroll/pull-up" "^2.0.0-beta.10"
+    "@better-scroll/scroll-bar" "^2.0.0-beta.10"
+    "@better-scroll/slide" "^2.0.0-beta.10"
+    "@better-scroll/wheel" "^2.0.0-beta.10"
+    "@better-scroll/zoom" "^2.0.0-beta.10"
 
 bfj@^7.0.2:
   version "7.0.2"
@@ -5156,6 +5246,11 @@ follow-redirects@^1.0.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
+
+follow-redirects@^1.10.0:
+  version "1.13.2"
+  resolved "https://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.13.2.tgz#dd73c8effc12728ba5cf4259d760ea5fb83e3147"
+  integrity sha1-3XPI7/wScoulz0JZ12DqX7g+MUc=
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -8933,8 +9028,8 @@ prompts@2.4.0, prompts@^2.0.1:
 
 prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
-  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
-  integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
+  resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
+  integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
   dependencies:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
@@ -9157,6 +9252,11 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-lazyload@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npm.taobao.org/react-lazyload/download/react-lazyload-3.1.0.tgz#2d2b172ede29f0a72dc4b329af6f1626ffd637d2"
+  integrity sha1-LSsXLt4p8KctxLMpr28WJv/WN9I=
 
 react-redux@^7.2.2:
   version "7.2.2"

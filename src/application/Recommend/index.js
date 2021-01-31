@@ -1,25 +1,48 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slider from '@/components/Slider'
 import RecommendList from '@/components/RecommendList'
+import Scroll from '@/baseUI/Scroll'
+import { Content } from './style'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  getBannerList,
+  getRecommendList
+} from './store/actionCreators'
+import { forceCheck } from 'react-lazyload'
+import Loading from '@/baseUI/Loading'
 
 function Recommend(props) {
-  const bannerList = [1,2,3,4].map (item => {
-    return { imageUrl: "http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg" }
-  })
-  const recommendList = [1,2,3,4,5,6,7,8,9,10].map ((item, index) => {
-    return {
-      id: index,
-      picUrl: "https://p1.music.126.net/fhmefjUfMD-8qtj3JKeHbA==/18999560928537533.jpg",
-      playCount: 17171122,
-      name: "朴树、许巍、李健、郑钧、老狼、赵雷"
+  const bannerList = useSelector(state => state.recommend.bannerList)
+  const recommendList = useSelector(state => state.recommend.recommendList)
+  const enterLoading = useSelector(state => state.recommend.enterLoading)
+
+  const dispatch = useDispatch() 
+
+  useEffect(() => {
+    if(!bannerList.length) {
+      dispatch(getBannerList())
     }
-  })
+    if(!recommendList.length) {
+      dispatch(getRecommendList())
+    }
+  }, [])
+
+  // 下拉刷新
+  const refersh = () => {
+    dispatch(getBannerList())
+    dispatch(getRecommendList())
+  }
 
   return (
-    <div>
-      <Slider bannerList={bannerList} />
-      <RecommendList recommendList={recommendList} /> 
-    </div>
+    <Content>
+      <Scroll className="list" onScroll={forceCheck} pullDown={refersh}>
+        <div>
+          <Slider bannerList={bannerList} />
+          <RecommendList recommendList={recommendList} />
+        </div>
+      </Scroll>
+      { enterLoading ? <Loading /> : null }
+    </Content> 
   )
 }
 
