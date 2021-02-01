@@ -1,9 +1,10 @@
-import React, { forwardRef, useState, useRef, useEffect, useImperativeHandle } from 'react'
+import React, { forwardRef, useState, useRef, useEffect, useImperativeHandle, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import BScroll from 'better-scroll'
 import styled from'styled-components'
 import Loading from '../Loading'
 import LoadingV2 from '../LoadingV2'
+import { debounce } from '@/api/utils'
 
 const ScrollContainer = styled.div`
   width: 100%;
@@ -44,6 +45,13 @@ const Scroll = forwardRef((props, ref) => {
   const PullUpdisplayStyle = pullUpLoading ? {display: ""} : { display:"none" }
   const PullDowndisplayStyle = pullDownLoading ? { display: ""} : { display:"none" }
 
+  const pullUpDebounce = useMemo(() => {
+    return debounce (pullUp, 300)
+  }, [pullUp])
+  const pullDownDebounce = useMemo(() => {
+    return debounce (pullDown, 300)
+  }, [pullDown])
+
   useEffect(() => {
     const scroll = new BScroll(scrollContaninerRef.current, {
       scrollX: direction === "horizental",
@@ -83,30 +91,32 @@ const Scroll = forwardRef((props, ref) => {
   // 进行上拉到底的判断，调用上拉刷新的函数
   useEffect (() => {
     if (!bScroll || !pullUp) return
-    bScroll.on('scrollEnd', () => {
+    const handlePullUp = () => {
       // 判断是否滑动到了底部
-      if (bScroll.y <= bScroll.maxScrollY + 100){
-        pullUp()
+      if(bScroll.y <= bScroll.maxScrollY + 100){
+        pullUpDebounce()
       }
-    })
-    return () => {
-      bScroll.off('scrollEnd')
     }
-  }, [pullUp, bScroll])
+    bScroll.on('scrollEnd', handlePullUp)
+    return () => {
+      bScroll.off('scrollEnd', handlePullUp)
+    }
+  }, [pullUp, pullUpDebounce, bScroll])
 
   // 进行下拉的判断，调用下拉刷新的函数
   useEffect (() => {
     if (!bScroll || !pullDown) return
-    bScroll.on ('touchEnd', (pos) => {
+    const handlePullDown = (pos) => {
       // 判断用户的下拉动作
-      if (pos.y > 50) {
-        pullDown()
+      if(pos.y > 50) {
+        pullDownDebounce()
       }
-    })
-    return () => {
-      bScroll.off('touchEnd')
     }
-  }, [pullDown, bScroll])
+    bScroll.on('touchEnd', handlePullDown)
+    return () => {
+      bScroll.off('touchEnd', handlePullDown)
+    }
+  }, [pullDown, pullDownDebounce, bScroll])
 
   // 一般和 forwardRef 一起使用，ref 已经在 forWardRef 中默认传入
   useImperativeHandle(ref, () => ({
