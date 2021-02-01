@@ -46,6 +46,7 @@
         "args": "none",
         "caughtErrors": "none"
       }
-    ]
+    ],
+    "max-params": ["warn", { "max": 6 }]
   }
 }
