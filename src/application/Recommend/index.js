@@ -10,6 +10,7 @@ import {
 } from './store/actionCreators'
 import { forceCheck } from 'react-lazyload'
 import Loading from '@/baseUI/Loading'
+import { renderRoutes } from 'react-router-config'
 
 function Recommend(props) {
   const bannerList = useSelector(state => state.recommend.bannerList)
@@ -42,6 +43,7 @@ function Recommend(props) {
         </div>
       </Scroll>
       { enterLoading ? <Loading /> : null }
+      { renderRoutes(props.route.routes) }
     </Content> 
   )
 }
