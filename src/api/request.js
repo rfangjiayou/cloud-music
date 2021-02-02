@@ -15,3 +15,7 @@ export const getHotSingerListRequest = (count) => {
 export const getSingerListRequest= (category, alpha, count) => {
   return axiosInstance.get(`/artist/list?area=${category.area || ''}&type=${category.type || ''}&initial=${alpha.toLowerCase()}&offset=${count}`)
 }
+
+export const getRankListRequest = () => {
+  return axiosInstance.get(`/toplist/detail`)
+}

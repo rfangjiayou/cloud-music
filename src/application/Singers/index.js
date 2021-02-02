@@ -35,7 +35,9 @@ function Singers(props) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getHotSingerDispatch()
+    if (!singerList.length) {
+      getHotSingerDispatch()
+    }
   }, [])
 
   const getHotSingerDispatch = () => {
