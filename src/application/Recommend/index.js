@@ -42,7 +42,7 @@ function Recommend(props) {
           <RecommendList recommendList={recommendList} />
         </div>
       </Scroll>
-      { enterLoading ? <Loading /> : null }
+      <Loading show={enterLoading} />
       { renderRoutes(props.route.routes) }
     </Content> 
   )

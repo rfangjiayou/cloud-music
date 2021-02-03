@@ -39,3 +39,5 @@ export const getName = list => {
   })
   return str
 }
+
+export const isEmptyObject = obj => !obj || Object.keys(obj).length === 0
