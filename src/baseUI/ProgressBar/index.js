@@ -47,7 +47,7 @@ function ProgressBar(props) {
 
   const transform = prefixStyle('transform')
 
-  const progressBtnWidth = 16
+  const progressBtnWidth = 16 / 2
 
   const progressTouchStart = (e) => {
     const startTouch = {}

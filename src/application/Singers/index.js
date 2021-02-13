@@ -24,6 +24,8 @@ import LazyLoad, {forceCheck} from 'react-lazyload'
 import { renderRoutes } from 'react-router-config'
 
 function Singers(props) {
+  const { songsCount } = props
+
   const [category, setCategory] = useState({})
   const [alpha, setAlpha] = useState('')
 
@@ -125,7 +127,7 @@ function Singers(props) {
         handleClick={handleUpdateAlpha} 
         oldVal={alpha}
       />
-      <ListContainer>
+      <ListContainer play={songsCount}>
         <Scroll
           onScroll={forceCheck}
           pullUp={ handlePullUp }

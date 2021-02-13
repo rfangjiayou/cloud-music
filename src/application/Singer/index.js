@@ -13,8 +13,11 @@ import Scroll from '@/baseUI/Scroll'
 import SongsList from '@/application/SongsList'
 import { getSingerInfo, changeEnterLoading } from './store/actionCreators'
 import Loading from '@/baseUI/Loading'
+import MusicNote from '@/baseUI/MusicNote'
 
 function Singer(props) {
+  const { songsCount } = props
+
   const [showStatus, setShowStatus] = useState(true)
   const collectButton = useRef()
   const imageWrapper = useRef()
@@ -22,6 +25,7 @@ function Singer(props) {
   const songScroll = useRef()
   const header = useRef()
   const layer = useRef()
+  const musicNoteRef = useRef()
   // 图片初始高度
   const initialHeight = useRef(0)
   const OFFSET = 5
@@ -40,6 +44,10 @@ function Singer(props) {
   const getSingerDataDispatch = (id) => {
     dispatch(changeEnterLoading(true))
     dispatch(getSingerInfo(id))
+  }
+
+  const musicAnimation = (x, y) => {
+    musicNoteRef.current.startAnimation({ x, y })
   }
 
   useEffect (() => {
@@ -104,7 +112,7 @@ function Singer(props) {
       unmountOnExit
       onExited={() => props.history.goBack()}
     >
-      <Container>
+      <Container play={songsCount}>
         <Header
           handleClick={setShowStatusFalse}
           title={artist.name}
@@ -123,10 +131,12 @@ function Singer(props) {
             <SongsList
               songs={songs}
               showCollect={false}
+              musicAnimation={musicAnimation}
             />
           </Scroll>
         </SongListWrapper>
         <Loading show={loading} />
+        <MusicNote ref={musicNoteRef} />
       </Container>
     </CSSTransition>
   )

@@ -14,6 +14,8 @@ import Loading from '@/baseUI/Loading'
 import { renderRoutes } from 'react-router-config'
 
 function Rank(props) {
+  const { songsCount } = props
+
   const rankList = useSelector(state => state.rank.rankList)
   const loading = useSelector(state => state.rank.loading)
 
@@ -73,7 +75,7 @@ function Rank(props) {
   }
 
   return (
-    <Container>
+    <Container play={songsCount}>
       <Scroll>
         <div>
           <h1 className="offical" style={displayStyle}>官方榜</h1>

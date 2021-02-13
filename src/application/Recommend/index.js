@@ -13,6 +13,8 @@ import Loading from '@/baseUI/Loading'
 import { renderRoutes } from 'react-router-config'
 
 function Recommend(props) {
+  const { songsCount } = props
+
   const bannerList = useSelector(state => state.recommend.bannerList)
   const recommendList = useSelector(state => state.recommend.recommendList)
   const enterLoading = useSelector(state => state.recommend.enterLoading)
@@ -35,7 +37,7 @@ function Recommend(props) {
   }
 
   return (
-    <Content>
+    <Content play={songsCount}>
       <Scroll className="list" onScroll={forceCheck} pullDown={refersh}>
         <div>
           <Slider bannerList={bannerList} />

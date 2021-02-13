@@ -16,13 +16,17 @@ import {
 } from './store/actionCreators'
 import Loading from '@/baseUI/Loading'
 import SongsList from '@/application/SongsList'
+import MusicNote from '@/baseUI/MusicNote'
 
 function Album(props) {
+  const { songsCount } = props
+
   const [showStatus, setShowStatus] = useState(true)
   const [title, setTitle] = useState('歌单')
   const [isMarquee, setIsMarquee] = useState (false) // 是否跑马灯
 
   const headerEl = useRef()
+  const musicNoteRef = useRef()
 
   const currentAlbum = useSelector(state => state.album.currentAlbum)
   const enterLoading = useSelector(state => state.album.enterLoading)
@@ -36,6 +40,10 @@ function Album(props) {
   const getAlbumDataDispatch = (id) => {
     dispatch(changeEnterLoading(true))
     dispatch(getAlbumList(id))
+  }
+
+  const musicAnimation = (x, y) => {
+    musicNoteRef.current.startAnimation({ x, y })
   }
 
   const handleScroll = useCallback((pos) => {
@@ -117,6 +125,8 @@ function Album(props) {
         songs={currentAlbum.tracks}
         showCollect={true}
         collectCount={currentAlbum.subscribedCount}
+        showBackground={true}
+        musicAnimation={musicAnimation}
       />
     )
   }
@@ -130,7 +140,7 @@ function Album(props) {
       unmountOnExit
       onExited={props.history.goBack}
     >
-      <Container>
+      <Container play={songsCount}>
         <Header
           title={title}
           ref={headerEl}
@@ -150,6 +160,7 @@ function Album(props) {
             ) : null
         }
         <Loading show={enterLoading} />
+        <MusicNote ref={musicNoteRef} />
       </Container>
     </CSSTransition>
   )

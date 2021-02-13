@@ -8,6 +8,9 @@ const SongsList = React.forwardRef((props, refs)=> {
 
   const { collectCount, showCollect, songs } = props
 
+  // 接受触发动画的函数
+  const { musicAnimation } = props
+
   const dispatch = useDispatch()
 
   const changePlayListDispatch = (data) => {
@@ -26,7 +29,7 @@ const SongsList = React.forwardRef((props, refs)=> {
     changePlayListDispatch(songs)
     changeSequecePlayListDispatch(songs)
     changeCurrentIndexDispatch(index)
-    // musicAnimation(e.nativeEvent.clientX, e.nativeEvent.clientY)
+    musicAnimation(e.nativeEvent.clientX, e.nativeEvent.clientY)
   }
 
   const songList = (list) => {

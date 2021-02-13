@@ -1,7 +1,7 @@
 import styled from'styled-components'
 import style from '../../assets/global-style'
 
-export const NavContainer  = styled.div`
+export const NavContainer = styled.div`
   box-sizing: border-box;
   position: fixed;
   top: 95px;
@@ -14,7 +14,7 @@ export const ListContainer = styled.div`
   position: fixed;
   top: 170px;
   left: 0;
-  bottom: 0;
+  bottom: ${props => props.play > 0 ? "60px": 0};
   overflow: hidden;
   width: 100%;
 `
