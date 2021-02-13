@@ -37,12 +37,15 @@ const ProgressBarWrapper = styled.div`
 `
 
 function ProgressBar(props) {
+  const { percent } = props
   const { percentChange } = props
 
   const progressBar = useRef()
   const progress = useRef()
   const progressBtn = useRef()
   const [touch, setTouch] = useState({})
+
+  const transform = prefixStyle('transform')
 
   const progressBtnWidth = 16
 
@@ -73,7 +76,7 @@ function ProgressBar(props) {
     const endTouch = JSON.parse (JSON.stringify(touch))
     endTouch.initiated = false
     setTouch(endTouch)
-    // _changePercent()
+    _changePercent()
   }
 
   const progressClick = (e) => {
@@ -82,7 +85,7 @@ function ProgressBar(props) {
     // const offsetWidth = e.pageX - rect.left
     const offsetWidth = Math.min(Math.max(0, e.pageX - rect.left), barWidth)
     _offset(offsetWidth)
-    // _changePercent()
+    _changePercent()
   }
 
   const _changePercent = () => {
@@ -90,6 +93,15 @@ function ProgressBar(props) {
     const curPercent = progress.current.clientWidth / barWidth // 新的进度计算
     percentChange(curPercent) // 把新的进度传给回调函数并执行
   }
+
+  useEffect(() => {
+    if(percent >= 0 && percent <= 1 && !touch.initiated) {
+      const barWidth = progressBar.current.clientWidth - progressBtnWidth
+      const offsetWidth = percent * barWidth
+      progress.current.style.width = `${offsetWidth}px`
+      progressBtn.current.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
+    }
+  }, [percent])
 
   return (
     <ProgressBarWrapper>
