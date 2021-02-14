@@ -2,6 +2,7 @@
   "name": "cloud-music",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rfangjiayou.github.io/cloud-music",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -37,7 +38,7 @@
     "eject": "react-scripts eject",
     "dev": "pm2 start pm2.json",
     "stop": "pm2 stop app server && pm2 delete app server",
-    "deploy": "yarn build && pm2 start NeteaseCloudMusicApi/app.js && pm2 start server.js"
+    "deploy": "cd ./NeteaseCloudMusicApi && yarn install && cd ../ && yarn build && pm2 start NeteaseCloudMusicApi/app.js && pm2 start server.js"
   },
   "browserslist": {
     "production": [
