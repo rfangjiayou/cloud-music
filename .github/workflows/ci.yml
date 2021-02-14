@@ -21,7 +21,7 @@ jobs:
       uses: github-actions-x/commit@v2.1
       with:
         github-token: ${{ secrets.ACCESS_TOKEN }}
-        push-branch: 'master'
+        push-branch: 'gh-pages'
         commit-message: 'publish'
         force-add: 'true'
 
