@@ -25,6 +25,7 @@ function Player(props) {
   // 记录当前的歌曲，以便于下次重渲染时比对是否是一首歌
   const [preSong, setPreSong] = useState({})
   const [modeText, setModeText] = useState("")
+  const songReady = useRef(true)
 
   // 绑定ref
   const audioRef = useRef()
@@ -144,20 +145,30 @@ function Player(props) {
     toastRef.current.show()
   }
 
+  const handleError = () => {
+    songReady.current = true
+    alert("播放出错")
+  }
+
   useEffect(() => {
     if (
       !playList.length ||
       currentIndex === -1 ||
       !playList[currentIndex] ||
-      playList[currentIndex].id === preSong.id 
+      playList[currentIndex].id === preSong.id ||
+      !songReady.current // 标志位为 false
     )
       return
     let current = playList[currentIndex]
+    songReady.current = false // 把标志位置为 false, 表示现在新的资源没有缓冲完成，不能切歌
     changeCurrentDispatch(current) // 赋值currentSong
     setPreSong(current)
     audioRef.current.src = getSongUrl(current.id)
     setTimeout(() => {
-      audioRef.current.play()
+      // 注意，play 方法返回的是一个 promise 对象
+      audioRef.current.play().then (() => {
+        songReady.current = true
+      })
     })
     togglePlayingDispatch(true) // 播放状态
     setCurrentTime(0) // 从头开始播放
@@ -203,6 +214,7 @@ function Player(props) {
         ref={audioRef}
         onTimeUpdate={updateTime}
         onEnded={handleEnd}
+        onError={handleError}
       />
       <Toast text={modeText} ref={toastRef} />
     </div>
