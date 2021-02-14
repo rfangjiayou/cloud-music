@@ -12,18 +12,18 @@ jobs:
       with:
           submodules: true
 
-    - name: update submodule
-      uses: srt32/git-actions@v0.0.3
-      with:
-        args: "git submodule update --remote"
+    # - name: update submodule
+    #   uses: srt32/git-actions@v0.0.3
+    #   with:
+    #     args: "git submodule update --remote"
 
-    - name: commit and push
-      uses: github-actions-x/commit@v2.1
-      with:
-        github-token: ${{ secrets.ACCESS_TOKEN }}
-        push-branch: 'gh-pages'
-        commit-message: 'publish'
-        force-add: 'true'
+    # - name: commit and push
+    #   uses: github-actions-x/commit@v2.1
+    #   with:
+    #     github-token: ${{ secrets.ACCESS_TOKEN }}
+    #     push-branch: 'gh-pages'
+    #     commit-message: 'publish'
+    #     force-add: 'true'
 
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@master 
